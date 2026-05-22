@@ -1,0 +1,54 @@
+% ============================================================
+% 全局宏包与样式定义（由 main.tex 在前言区 \include）
+% ============================================================
+
+% --- 数学 ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% --- 超链接（ctexbook 兼容模式）---
+\usepackage[hidelinks,bookmarks=true]{hyperref}
+
+% --- 引用 ---
+\usepackage{csquotes}
+
+% --- TikZ ---
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning,calc}
+
+% --- 代码块 ---
+\usepackage{listings}
+\definecolor{codebg}{RGB}{245,245,250}
+\definecolor{codeframe}{RGB}{180,180,200}
+\lstdefinestyle{codeblock}{
+  backgroundcolor=\color{codebg},
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  frame=single,
+  framerule=0.5pt,
+  rulecolor=\color{codeframe},
+  framesep=8pt,
+  aboveskip=8pt,
+  belowskip=8pt,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+}
+\lstset{style=codeblock}
+
+% --- tcolorbox 引用框样式 ---
+\tcbset{
+  textbookquote/.style={
+    colback=blue!3!white,
+    colframe=blue!30!white,
+    boxrule=0.5pt,
+    arc=3pt,
+    left=6pt, right=6pt,
+    top=4pt, bottom=4pt,
+  }
+}
+
+% --- 全局 lightquote 环境（供各章共用）---
+\newenvironment{lightquote}{%
+  \begin{tcolorbox}[textbookquote]\small}{%
+  \end{tcolorbox}}

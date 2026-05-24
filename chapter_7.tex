@@ -1,4 +1,11 @@
 % ============================================================
+% 微模块4：人工智能在医工方向的应用
+% ============================================================
+
+\part*{微模块4\quad 人工智能在医工方向的应用}
+\addcontentsline{toc}{part}{微模块4\quad 人工智能在医工方向的应用}
+
+% ============================================================
 % 第9章：人工智能赋能医学的应用基础知识
 % ============================================================
 
@@ -17,15 +24,24 @@
 
 一名患者从入院到出院，可能会留下几十页病历、数百张影像切片、连续监护波形和多次检验结果。对医生来说，这些资料共同描绘了疾病发生和治疗变化的过程；对人工智能来说，它们则是学习医学规律的原始材料。根据来源和表现形式，医学数据通常可以分为电子病历数据、医学影像数据、生理信号数据和生命组学数据等类型。如图9.1所示，不同数据类型在结构形式、信息来源和人工智能处理任务上各有特点，共同支撑疾病识别、病情评估、治疗决策和长期随访等医疗活动。
 
+% \begin{figure}[H]
+% \centering
+% \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
+% \centering
+% \vspace{30pt}
+% {\large\color{gray!70} [图片占位]}
+% \vspace{10pt}
+% {\small\color{gray!50} 图9.1 医学数据类型与基本特征示意图}
+% \vspace{25pt}
+% \end{tcolorbox}
+% \caption*{\footnotesize\itshape\color{gray!50} 图9.1 医学数据类型与基本特征示意图}
+% \end{figure}
+
 \begin{figure}[H]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图9.1 医学数据类型与基本特征示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/9.1.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图9.1 医学数据类型与基本特征示意图}
 \end{figure}
@@ -36,17 +52,14 @@
 
 电子病历的内容既有结构化信息，也有医生用自然语言写下的文字记录。前者便于计算机直接统计，后者则包含丰富的临床语义，需要模型理解医学表达才能进一步利用。常见内容主要包括：
 
-患者基本信息，如姓名、年龄、性别、身高、体重、联系方式等
-
-主诉、现病史、既往史、个人史和家族史等病史信息
-
-体格检查结果与临床观察记录
-
-检验检查结果，如血常规、生化指标、凝血功能等
-
-诊断、治疗、手术、护理及用药记录
-
-出院小结、随访记录和康复记录等
+\begin{itemize}
+  \item 患者基本信息，如姓名、年龄、性别、身高、体重、联系方式等
+  \item 主诉、现病史、既往史、个人史和家族史等病史信息
+  \item 体格检查结果与临床观察记录
+  \item 检验检查结果，如血常规、生化指标、凝血功能等
+  \item 诊断、治疗、手术、护理及用药记录
+  \item 出院小结、随访记录和康复记录等
+\end{itemize}
 
 电子病历的价值在于它能够较完整地呈现患者从就诊到随访的全过程，是临床决策、医疗管理和人工智能文本分析的重要基础。它的难点也很明显：不同医生的书写习惯不完全一致，专业术语和缩略语较多，部分记录结构化程度不高。因此，在人工智能应用中，电子病历往往需要经过整理、提取和规范化处理，才能成为模型可靠学习的材料。
 
@@ -126,11 +139,7 @@ DNA序列数据：DNA序列数据主要反映个体遗传信息的基本组成�
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图9.2 医学数据处理流程示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/9.2.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图9.2 医学数据处理流程示意图}
 \end{figure}
@@ -171,11 +180,7 @@ DNA序列数据：DNA序列数据主要反映个体遗传信息的基本组成�
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图9.3 医疗人工智能典型任务框架示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/9.3.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图9.3 医疗人工智能典型任务框架示意图}
 \end{figure}
@@ -224,11 +229,7 @@ DNA序列数据：DNA序列数据主要反映个体遗传信息的基本组成�
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图9.4 医学影像识别与辅助诊断流程示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/9.4.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图9.4 医学影像识别与辅助诊断流程示意图}
 \end{figure}
@@ -241,11 +242,7 @@ DNA序列数据：DNA序列数据主要反映个体遗传信息的基本组成�
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图9.5 常见医学影像类型与成像特点示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/9.5.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图9.5 常见医学影像类型与成像特点示意图}
 \end{figure}
@@ -312,11 +309,7 @@ PET通常通过放射性示踪剂显示组织代谢活性，在肿瘤评估、�
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图9.6 医学影像处理流程与识别方法示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/9.6.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图9.6 医学影像处理流程与识别方法示意图}
 \end{figure}
@@ -371,11 +364,7 @@ PET通常通过放射性示踪剂显示组织代谢活性，在肿瘤评估、�
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图9.7 辅助诊断结果类型与临床判读关系示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/9.7.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图9.7 辅助诊断结果类型与临床判读关系示意图}
 \end{figure}
@@ -416,11 +405,7 @@ PET通常通过放射性示踪剂显示组织代谢活性，在肿瘤评估、�
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图9.8 临床决策分析与健康管理闭环示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/9.8.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图9.8 临床决策分析与健康管理闭环示意图}
 \end{figure}
@@ -433,11 +418,7 @@ PET通常通过放射性示踪剂显示组织代谢活性，在肿瘤评估、�
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图9.9 临床风险预测与疗效评估流程示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/9.9.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图9.9 临床风险预测与疗效评估流程示意图}
 \end{figure}
@@ -492,11 +473,7 @@ PET通常通过放射性示踪剂显示组织代谢活性，在肿瘤评估、�
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图9.10 个体诊疗管理与健康干预闭环示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/9.10.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图9.10 个体诊疗管理与健康干预闭环示意图}
 \end{figure}

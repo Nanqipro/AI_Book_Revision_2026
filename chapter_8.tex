@@ -21,11 +21,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.1 医嘱智能判别与规范评分总体框架示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.1.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.1 医嘱智能判别与规范评分总体框架示意图}
 \end{figure}
@@ -40,11 +36,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.2 医嘱数据整理与规则提取流程示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.2.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.2 医嘱数据整理与规则提取流程示意图}
 \end{figure}
@@ -97,11 +89,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.3 医嘱知识图谱构建与存储管理流程示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.3.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.3 医嘱知识图谱构建与存储管理流程示意图}
 \end{figure}
@@ -156,11 +144,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.4 基于大模型的医嘱智能审核系统总体架构示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.4.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.4 基于大模型的医嘱智能审核系统总体架构示意图}
 \end{figure}
@@ -183,26 +167,18 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.4-1展示了金标准医嘱知识图谱中的阶段节点与关系示意图。图中以“创伤性硬膜下出血”为中心，可以看到其与诊断确认、T0急性期、T0+6-24小时、T0+1-7天、康复期和长期管理等阶段节点相连。不同阶段再进一步连接对应的计划项目，例如康复期关联慢性硬膜下血肿处置，T0+1-7天阶段关联术后管理、保守治疗等内容。这说明金标准在图数据库中并不是按照单一时间线机械排列，而是根据病种、阶段、计划项目和适用范围组织成具有层次关系的知识结构。}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.4.1.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.4-1展示了金标准医嘱知识图谱中的阶段节点与关系示意图。图中以“创伤性硬膜下出血”为中心，可以看到其与诊断确认、T0急性期、T0+6-24小时、T0+1-7天、康复期和长期管理等阶段节点相连。不同阶段再进一步连接对应的计划项目，例如康复期关联慢性硬膜下血肿处置，T0+1-7天阶段关联术后管理、保守治疗等内容。这说明金标准在图数据库中并不是按照单一时间线机械排列，而是根据病种、阶段、计划项目和适用范围组织成具有层次关系的知识结构。}
 \end{figure}
 
-右侧节点详情显示，长期管理节点被标记为Phase（阶段）类型，并包含name（名称）、phase_type（阶段类型）、sequence（顺序号）和is_mainline（是否属于主流程）等属性。其中，is_mainline为true，说明该节点属于主流程阶段；sequence用于表示其在主流程中的相对顺序。通过这些属性，系统能够区分主流程阶段、分支阶段和并行项目，为后续判断某项医嘱是否属于对应阶段、是否符合时间要求、是否应与其他医嘱同时出现提供依据。
+右侧节点详情显示，长期管理节点被标记为Phase（阶段）类型，并包含name（名称）、phase\_type（阶段类型）、sequence（顺序号）和is\_mainline（是否属于主流程）等属性。其中，is\_mainline为true，说明该节点属于主流程阶段；sequence用于表示其在主流程中的相对顺序。通过这些属性，系统能够区分主流程阶段、分支阶段和并行项目，为后续判断某项医嘱是否属于对应阶段、是否符合时间要求、是否应与其他医嘱同时出现提供依据。
 
 \begin{figure}[H]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.4-1 金标准医嘱知识图谱中的阶段节点与关系示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.4.1.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.4-1 金标准医嘱知识图谱中的阶段节点与关系示意图}
 \end{figure}
@@ -221,11 +197,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.4-2展示了系统界面中的输入医嘱、金标准内容和实际医嘱识别结果。界面上方为待审核医嘱文本，系统点击“开始审核”后，会根据输入内容召回对应病种的金标准医嘱。图中金标准部分显示，本案例对应的是脑室出血相关金标准，内容覆盖T0急性期、T0+24小时内、T0+1-7天、T0+1-14天和康复期等不同阶段，涉及监测、检查、评估、治疗、禁忌或不推荐药物以及长期管理要求。}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.4.2.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.4-2展示了系统界面中的输入医嘱、金标准内容和实际医嘱识别结果。界面上方为待审核医嘱文本，系统点击“开始审核”后，会根据输入内容召回对应病种的金标准医嘱。图中金标准部分显示，本案例对应的是脑室出血相关金标准，内容覆盖T0急性期、T0+24小时内、T0+1-7天、T0+1-14天和康复期等不同阶段，涉及监测、检查、评估、治疗、禁忌或不推荐药物以及长期管理要求。}
 \end{figure}
@@ -238,11 +210,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.4-2 医嘱审核系统中的输入医嘱、金标准与实际医嘱识别结果}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.4.2.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.4-2 医嘱审核系统中的输入医嘱、金标准与实际医嘱识别结果}
 \end{figure}
@@ -253,11 +221,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.4-3展示了本案例的差异对比与规范评分结果。系统在识别实际医嘱后，将其与召回的金标准医嘱进行逐项对照，并把审核结果分为实际医嘱识别、差异对比和评分三部分输出。绿色区域显示了系统从输入文本中识别出的诊断、药物、检查、治疗、护理和监测等内容，便于医师快速查看系统是否正确理解了原始医嘱。}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.4.3.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.4-3展示了本案例的差异对比与规范评分结果。系统在识别实际医嘱后，将其与召回的金标准医嘱进行逐项对照，并把审核结果分为实际医嘱识别、差异对比和评分三部分输出。绿色区域显示了系统从输入文本中识别出的诊断、药物、检查、治疗、护理和监测等内容，便于医师快速查看系统是否正确理解了原始医嘱。}
 \end{figure}
@@ -270,11 +234,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.4-3 差异对比与规范评分结果示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.4.3.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.4-3 差异对比与规范评分结果示意图}
 \end{figure}
@@ -299,11 +259,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.5 智能穿戴监测与健康评估总体框架示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.5.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.5 智能穿戴监测与健康评估总体框架示意图}
 \end{figure}
@@ -318,11 +274,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.6 可穿戴设备生理参数采集与传输流程示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.6.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.6 可穿戴设备生理参数采集与传输流程示意图}
 \end{figure}
@@ -337,11 +289,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.7 使用智能手表实时监测心率}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.7.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.7 使用智能手表实时监测心率}
 \end{figure}
@@ -352,11 +300,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.8 胸贴式心电监测设备示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.8.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.8 胸贴式心电监测设备示意图}
 \end{figure}
@@ -367,11 +311,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.9 连续血糖监测仪及血糖趋势显示示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.9.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.9 连续血糖监测仪及血糖趋势显示示意图}
 \end{figure}
@@ -382,11 +322,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.10 袖带式动态血压监测设备示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.10.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.10 袖带式动态血压监测设备示意图}
 \end{figure}
@@ -397,11 +333,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.11 专用可穿戴监测设备类型示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.11.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.11 专用可穿戴监测设备类型示意图}
 \end{figure}
@@ -446,11 +378,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.12 健康状态识别与异常发现流程示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.12.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.12 健康状态识别与异常发现流程示意图}
 \end{figure}
@@ -517,11 +445,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.13 基于可穿戴设备的健康状态监测系统总体架构示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.13.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.13 基于可穿戴设备的健康状态监测系统总体架构示意图}
 \end{figure}
@@ -590,11 +514,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.14 智能康复系统与功能训练总体框架示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.14.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.14 智能康复系统与功能训练总体框架示意图}
 \end{figure}
@@ -607,11 +527,7 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.15 康复设备组成与交互控制示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.15.png}
 \end{tcolorbox}
 \caption*{\footnotesize\itshape\color{gray!50} 图10.15 康复设备组成与交互控制示意图}
 \end{figure}
@@ -678,13 +594,9 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.11 康复训练设计与反馈调节闭环示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.16.png}
 \end{tcolorbox}
-\caption*{\footnotesize\itshape\color{gray!50} 图10.11 康复训练设计与反馈调节闭环示意图}
+\caption*{\footnotesize\itshape\color{gray!50} 图10.16 康复训练设计与反馈调节闭环示意图}
 \end{figure}
 
 \subsubsection*{\textbf{1. 康复训练的基本原理与设计要素}}
@@ -751,13 +663,9 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.12 康复机器人在脑卒中康复中的应用流程示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.17.png}
 \end{tcolorbox}
-\caption*{\footnotesize\itshape\color{gray!50} 图10.12 康复机器人在脑卒中康复中的应用流程示意图}
+\caption*{\footnotesize\itshape\color{gray!50} 图10.17 康复机器人在脑卒中康复中的应用流程示意图}
 \end{figure}
 
 \subsubsection*{\textbf{1. 系统总体架构与训练流程}}
@@ -826,13 +734,9 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.13 中药方剂解读与组方分析总体框架示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.18.png}
 \end{tcolorbox}
-\caption*{\footnotesize\itshape\color{gray!50} 图10.13 中药方剂解读与组方分析总体框架示意图}
+\caption*{\footnotesize\itshape\color{gray!50} 图10.18 中药方剂解读与组方分析总体框架示意图}
 \end{figure}
 
 \subsection{方剂文本整理与知识表示}
@@ -845,13 +749,9 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.14 方剂文本整理与知识表示流程示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.19.png}
 \end{tcolorbox}
-\caption*{\footnotesize\itshape\color{gray!50} 图10.14 方剂文本整理与知识表示流程示意图}
+\caption*{\footnotesize\itshape\color{gray!50} 图10.19 方剂文本整理与知识表示流程示意图}
 \end{figure}
 
 \subsubsection*{\textbf{1. 方剂数据的基本特点}}
@@ -920,13 +820,9 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.15 药味关系识别与组方解析流程示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.20.png}
 \end{tcolorbox}
-\caption*{\footnotesize\itshape\color{gray!50} 图10.15 药味关系识别与组方解析流程示意图}
+\caption*{\footnotesize\itshape\color{gray!50} 图10.20 药味关系识别与组方解析流程示意图}
 \end{figure}
 
 \subsubsection*{\textbf{1. 中药药味关系的基本层次}}
@@ -989,13 +885,9 @@
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
-\vspace{30pt}
-{\large\color{gray!70} [图片占位]}
-\vspace{10pt}
-{\small\color{gray!50} 图10.16 基于知识图谱的方剂组方解读系统总体架构示意图}
-\vspace{25pt}
+\includegraphics[width=\linewidth]{./images_chapter_07-08/10.21.png}
 \end{tcolorbox}
-\caption*{\footnotesize\itshape\color{gray!50} 图10.16 基于知识图谱的方剂组方解读系统总体架构示意图}
+\caption*{\footnotesize\itshape\color{gray!50} 图10.21 基于知识图谱的方剂组方解读系统总体架构示意图}
 \end{figure}
 
 \subsubsection*{\textbf{1. 系统总体架构与解读流程}}

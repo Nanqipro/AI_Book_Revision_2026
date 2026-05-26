@@ -17,7 +17,7 @@
 
 如图\ref{fig:ch10_01}所示，医嘱智能判别与规范评分通常包括医嘱数据整理、规则提取、知识图谱构建、智能审核与评分反馈等环节。前端负责接收和解析医嘱，后端负责调用规则、图谱和模型完成判别，最终向医生输出结构化、可解释的审核结果。通过这一过程，人工智能能够参与医嘱质量管理中的信息整理、标准对照和结果提示，为临床医嘱复核提供辅助支持。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -33,7 +33,7 @@
 
 如图\ref{fig:ch10_02}所示，医嘱数据整理与规则提取通常包括医嘱要素拆解、结构化抽取、金标准对比与规则归纳等环节。整理的目的不是把临床工作变复杂，而是把医生自然书写的医嘱转化为机器可以读取、比较和追溯的数据结构。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -87,7 +87,7 @@
 
 如图\ref{fig:ch10_03}所示，医嘱知识图谱构建与存储管理通常包括知识来源整理、实体与关系抽取、知识融合、图数据库存储和持续维护等环节。知识来源整理负责汇集指南、共识、药品说明书和金标准医嘱；实体与关系抽取负责识别疾病、药物、检查和监测等核心内容及其联系；知识融合用于处理不同来源之间的名称差异和规则冲突；图数据库存储则负责保存节点、关系和属性；持续维护用于根据指南更新、临床需求变化和系统反馈不断修订图谱内容。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -143,7 +143,7 @@
 
 本案例采用二附院提供的金标准医嘱作为对照依据。金标准医嘱覆盖脑出血相关疾病在不同阶段应关注的检查、治疗、监测、护理和随访要求。系统将这些金标准内容保存到本地图数据库中，并调用本地部署的7B模型对输入医嘱进行判别与规范评分。审核完成后，系统输出实际医嘱识别结果、金标准对比结果、差异说明、时间一致性检查和综合评分，为医师复核提供依据。如图\ref{fig:ch10_04}所示，基于大模型的医嘱智能审核系统总体架构通常包括输入医嘱、结构化识别、知识图谱查询、模型判别和结果输出等环节，各环节协同完成医嘱内容的逐项审核与规范评分。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -171,7 +171,7 @@
 
 右侧节点详情显示，长期管理节点被标记为Phase（阶段）类型，并包含name（名称）、phase\_type（阶段类型）、sequence（顺序号）和is\_mainline（是否属于主流程）等属性。其中，is\_mainline为true，说明该节点属于主流程阶段；sequence用于表示其在主流程中的相对顺序。通过这些属性，系统能够区分主流程阶段、分支阶段和并行项目，为后续判断某项医嘱是否属于对应阶段、是否符合时间要求、是否应与其他医嘱同时出现提供依据。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -197,7 +197,7 @@
 
 从图\ref{fig:ch10_06}可以看出，系统不仅输出了已识别的实际医嘱，还进一步将其与金标准进行差异对照。对于已经覆盖的内容，系统能够将其归入相应类别；对于可能缺失的内容，系统会在后续差异分析中提示。例如，金标准中强调头颅非增强CT、病因鉴别、严重程度评估、脑积水评估和长期管理等内容，而实际输入医嘱虽然包含复查脑CT和多项治疗监测安排，但仍需要进一步判断是否满足金标准中对检查项目、评估项目和阶段时间的要求。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -215,7 +215,7 @@
 
 在评分结果中，系统给出的总分为85/100，扣分项显示为“遗漏金标准检查：头颅非增强CT”，对应扣15分。该结果表明，审核模型能够从较长的连续医嘱文本中识别出诊断、药物、监测、检查和治疗等关键信息，并将其与金标准医嘱进行结构化对照。输入医嘱中包含营养维持、抗感染、降颅压、止血处理、心电监测、颅内压监测、血糖监测、血气复查和脑CT复查等多项内容，模型能够对这些内容进行分类整理，并进一步提示头颅非增强CT这一金标准检查项目在脑室出血诊断和病情评估中的重要作用。由此可见，该模型不仅能够完成医嘱文本识别，还能够结合金标准给出差异提示、扣分依据和医学解释，说明其在医嘱规范性审核中具有较好的实用性和可解释性。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -241,7 +241,7 @@
 
 如图\ref{fig:ch10_08}所示，智能穿戴监测与健康评估通常包括生理参数采集、连续数据传输、健康状态识别和异常预警反馈等环节。设备端负责采集人体信号，平台端负责完成数据汇总和状态分析，医护人员或用户根据系统提示进行进一步处理。各环节相互衔接，形成从数据采集、健康评估到反馈干预的完整过程。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -257,7 +257,7 @@
 
 如图\ref{fig:ch10_09}所示，可穿戴设备的生理参数采集与传输通常包括传感采集、信号预处理、本地处理、数据传输和云端汇总等环节。传感采集负责从人体获取原始信号，例如光电容积脉搏波、心电信号、连续血糖数据和惯性测量数据；信号预处理用于减小噪声干扰，并完成基础格式整理；本地处理可以在设备端进行初步计算和临时存储；数据传输负责将监测结果同步到手机、网关或云端平台；云端汇总则为后续健康状态识别、异常发现和长期趋势分析提供数据基础。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -273,7 +273,7 @@
 
 腕戴类设备包括智能手表和智能手环，具有体积小、佩戴方便、使用门槛低等特点，常用于采集心率、血氧饱和度、活动量和睡眠状态等信息。如图\ref{fig:ch10_10}所示，智能手表可以实时显示用户心率，并在后台形成心率、步数和睡眠等健康数据记录。这类设备适合日常健康管理，也常作为连续监测的基础入口。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -285,7 +285,7 @@
 
 胸贴类设备主要用于心电信号的长期记录。与腕戴设备相比，胸贴式心电设备更接近临床心电监测场景，能够连续采集单导联或多导联心电信号，适合捕捉阵发性心律失常等短暂出现的异常事件。如图\ref{fig:ch10_11}所示，心电贴片通常贴附在胸前，通过内置电极记录心脏电活动，并将心电波形保存或上传至分析系统，为心律异常识别提供数据基础。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -297,7 +297,7 @@
 
 皮下植入类设备的代表是连续血糖监测仪。它通过贴附在上臂或腹部皮肤表面的传感器，将微型探头置入皮下组织间液中，连续检测葡萄糖浓度变化。如图\ref{fig:ch10_12}所示，连续血糖监测仪不仅可以显示当前血糖值，还能通过手机端呈现血糖变化曲线，使糖尿病患者的血糖管理从间断的指尖采血转向连续动态观察。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -309,7 +309,7 @@
 
 袖带类设备主要用于动态血压监测。设备通过定时充气测量获得24小时血压变化曲线，可用于评价血压控制效果，发现夜间血压异常、晨峰血压和降压药物作用不稳定等问题。如图\ref{fig:ch10_13}所示，动态血压监测设备通常由上臂袖带和便携式记录器组成，患者可在日常活动和睡眠过程中完成连续血压记录，从而获得比门诊单次测量更完整的血压变化信息。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -321,7 +321,7 @@
 
 除上述设备外，还有一些面向特定场景的专用监测设备。如图\ref{fig:ch10_14}所示，睡眠监测设备可用于记录睡眠过程中的呼吸、血氧和睡眠阶段变化，辅助睡眠呼吸暂停等问题的筛查；跌倒监测器主要用于老年人安全管理，在跌倒发生时及时发出提醒；血氧监测指环可连续记录血氧饱和度和脉率，适用于慢性肺部疾病、心衰等人群；呼吸监测腰带则可记录胸腹部运动变化，用于观察呼吸频率和呼吸模式。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -367,7 +367,7 @@
 
 如图\ref{fig:ch10_15}所示，健康状态识别与异常发现通常包括特征提取、状态识别、异常识别、个体化基线分析和多参数融合等环节。系统首先从心率、心电、血氧、血糖、血压、活动量和睡眠等数据中提取时域特征、频域特征以及形态特征；随后结合阈值规则、传统机器学习和深度学习方法，对健康状态进行分级判断，并识别异常波动；最后通过多参数融合输出风险等级、趋势曲线和异常时间窗，为用户提醒和医生复核提供依据。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -435,7 +435,7 @@
 
 如图\ref{fig:ch10_16}所示，本案例中的健康状态监测系统由用户端、云端平台和医护端组成。用户端负责采集居家场景中的连续健康数据，云端平台负责完成数据清洗、健康档案构建、模型分析和分级预警，医护端则根据系统生成的健康报告进行复核、随访和干预。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -505,7 +505,7 @@
 
 如图\ref{fig:ch10_17}所示，智能康复系统与功能训练通常包括康复设备硬件、人机交互控制、训练方案设计、过程数据采集和效果评估反馈等。康复设备为患者提供训练支持，人机交互控制保障训练过程安全、灵活和可调，训练方案设计用于确定任务、强度和阶段安排，过程数据采集记录训练中的轨迹、力量和完成度，效果评估反馈则用于判断训练效果并指导下一阶段方案调整。整个过程形成“评估—调整—再训练”的循环，使康复训练从经验驱动逐步转向数据支持和人机协同。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -519,7 +519,7 @@
 
 康复设备及其交互控制是智能康复系统能够安全运行的基础。设备硬件负责感知患者状态和执行训练动作，控制系统负责调节训练方式，人机交互界面负责向患者和治疗师呈现任务与反馈，安全保护机制则保证训练过程不超过患者承受范围。如图\ref{fig:ch10_18}所示，康复设备通常由感知模块、执行模块、控制模块、交互模块和安全保护模块组成，同时支持被动训练、主动训练、辅助训练和阻抗训练等多种人机交互方式。设备通过感知患者动作状态，调节辅助力或阻力，并将训练结果反馈给患者和治疗师，从而实现较为灵活的功能训练。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -587,7 +587,7 @@
 
 如图\ref{fig:ch10_19}所示，康复训练设计与反馈调节通常包括训练目标设定、任务设计、反馈机制构建、过程评估和方案调整等环节，多个环节通过数据闭环连接，形成持续优化的训练过程。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -657,7 +657,7 @@
 
 如图\ref{fig:ch10_20}所示，康复机器人在脑卒中康复中的应用通常由患者评估、方案制定、机器人训练、过程数据采集和效果评估反馈等环节构成，多个环节通过数据闭环连接，形成连续动态的康复管理过程。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -729,7 +729,7 @@
 
 如图\ref{fig:ch10_21}所示，中药方剂解读与组方分析通常由方剂文本整理、知识表示与图谱构建、药味关系识别与组方解析以及方剂智能阐释等环节构成，前后衔接形成完整的应用链条。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -745,7 +745,7 @@
 
 如图\ref{fig:ch10_22}所示，方剂文本整理与知识表示通常包括方剂数据采集、文本整理与结构化、知识表示和图谱构建等环节，各环节相互衔接，共同为后续组方分析与智能阐释提供基础。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -817,7 +817,7 @@
 
 如图\ref{fig:ch10_23}所示，药味关系识别与组方解析通常包括药对挖掘、核心药组识别、配伍关系分析、组方模式解析和相似方比较等环节，多个环节相互配合，共同呈现方剂数据中蕴含的配伍规律。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering
@@ -883,7 +883,7 @@
 
 如图\ref{fig:ch10_24}所示，基于知识图谱的方剂组方解读系统通常由方剂输入、知识图谱检索、大模型语义生成、解读结果输出和反馈学习等环节构成，多个环节通过统一的数据接口连接，形成端到端的方剂解读流程。
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tcolorbox}[width=0.88\textwidth, colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt]
 \centering

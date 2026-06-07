@@ -11,12 +11,12 @@
 请根据以下结构，绘制一张与图示风格一致的横向树状思维导图，要求如下：
 
 **风格要求：**
-- 整体布局：横向展开，根节点在最左侧，向右分叉展开；画布宽高比自适应内容，整体偏宽（建议宽高比不低于 2:1），避免纵向压缩
-- 节点样式：一级节点（大节点）使用灰色矩形框，内含加粗文字（每行不超过 8 个汉字，超出自动换行）；二级及以下节点使用细线连接的纯文本标签
-- 间距要求：节点与节点之间保留充足空白，同级节点行间距不小于节点高度的 1.5 倍，父子节点横向间距不小于 40px（或等效单位），禁止文字重叠或节点粘连
-- 叶节点标注：括号内的说明文字控制在 12 个汉字以内，超出部分省略为关键词；说明文字字号比节点标题小一级，颜色为浅灰色
+- 整体布局：纵向展开，根节点居于顶部中央，向下逐层分叉展开；画布采用高瘦比例，宽高比建议不超过 1:1.5（即高度明显大于宽度），整体呈竖版长图效果
+- 节点样式：一级节点（大节点）使用灰色矩形框，内含加粗文字（每行不超过 10 个汉字，超出自动换行，框宽固定，不随文字伸长）；二级节点使用浅灰色小矩形框；三级及叶节点使用细线连接的纯文本标签，不加框
+- 间距要求：每一层级之间保留充足垂直间距，同级节点列间距不小于节点宽度的 1.2 倍，上下层节点垂直间距不小于 30px（或等效单位）；叶节点之间严禁文字重叠或粘连，各节点独占一行显示
+- 叶节点标注：括号内说明文字独立成行，紧跟在节点名称下方或右侧，控制在 14 个汉字以内，字号比节点名称小一级，颜色为浅灰（#888888），不与其他节点文字发生视觉干扰
 - 字体：中文黑体，专业学术风格，无装饰性图标、无彩色背景色块
-- 配色：黑白灰为主色调，连接线为深灰色，背景为纯白色
+- 配色：黑白灰为主色调，连接线为深灰色，背景为纯白色；一级节点框填充浅灰（#F0F0F0），其余节点无填充
 - 图题：图下方居中注明图题"图 9-X  第九章 医学人工智能应用基础知识结构导图"
 
 **知识点层级结构如下：**
@@ -137,12 +137,12 @@
 Please generate a horizontal tree-style mind map in Chinese based on the following structure. Follow these style requirements:
 
 **Visual Style:**
-- Layout: Horizontal tree expanding from left (root) to right (leaves); canvas aspect ratio should be adaptive and wide (minimum 2:1 width-to-height), never compressed vertically
-- Major nodes (Level 1): Gray rounded rectangles with bold Chinese text; wrap text at 8 characters per line
-- Minor nodes (Level 2+): Plain text labels connected by thin lines; no background fill
-- Spacing: Generous whitespace between all nodes — sibling row gap ≥ 1.5× node height; parent-child horizontal gap ≥ 40px; no overlapping text or crowded clusters
-- Parenthetical notes: Keep annotations under 12 Chinese characters; use smaller font size and light gray color
-- Color scheme: Black, white, and gray tones; dark gray connecting lines; pure white background; no colored blocks
+- Layout: Vertical top-down tree; root node at top center, branches expand downward; canvas aspect ratio should be tall and narrow (height-to-width ≥ 1.5:1), producing a portrait/long-scroll effect — never compress text to fit a wide canvas
+- Major nodes (Level 1): Gray filled rectangles (#F0F0F0) with bold text; fixed width, text wraps at 10 characters per line
+- Level 2 nodes: Small light-gray rectangles; Level 3+ / leaf nodes: plain text labels connected by thin lines, no box
+- Spacing: Generous vertical gap between layers (≥ 30px per level); sibling nodes spaced at least 1.2× their own width apart; every node occupies its own line — no text overlap or crowding
+- Parenthetical notes: Placed on a new line directly below or beside the node label; max 14 Chinese characters; font one size smaller; color light gray (#888888)
+- Color scheme: Black, white, and gray; dark gray connector lines; pure white background; no color fills except Level-1 node boxes
 - Font: Professional Chinese academic style (no decorative icons or emoji)
 - Caption: Centered below the figure, "图 9-X  第九章 医学人工智能应用基础知识结构导图"
 

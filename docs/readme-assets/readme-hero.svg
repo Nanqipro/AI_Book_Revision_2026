@@ -48,6 +48,7 @@
     </g>
 
     <text x="82" y="535" fill="#6f8cad" font-size="17">9 个已编章节 · 50+ 节内容 · 240+ 幅图片素材 · 持续修订中</text>
+    <text x="82" y="574" fill="#51f0bb" font-size="15" font-weight="600" letter-spacing="2">NANCHANG UNIVERSITY · GOODLAB</text>
 
     <g filter="url(#shadow)">
       <circle cx="1110" cy="304" r="112" fill="#0d4f8e" stroke="#63e6ff" stroke-width="2.5"/>

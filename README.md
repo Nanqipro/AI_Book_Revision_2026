@@ -13,8 +13,12 @@
   <code>中文教材</code> · <code>AI Agent</code> · <code>案例驱动</code> · <code>XeLaTeX</code> · <code>持续修订</code>
 </p>
 
+<p align="center">
+  <a href="https://good.ncu.edu.cn/"><strong>南昌大学 GOODLAB 实验室相关团队出品</strong></a>
+</p>
+
 > [!IMPORTANT]
-> **📚 新书即将上市，敬请期待！** 本仓库对应的《人工智能通识教程（第二版）》正在进行出版前的持续修订。欢迎 Star 或 Watch 本仓库，关注书稿与出版动态。
+> **📚 新书即将上市，敬请期待！** 本仓库对应的《人工智能通识教程（第二版）》由南昌大学 GOODLAB 实验室相关团队参与策划、编写与持续修订。欢迎 Star 或 Watch 本仓库，关注书稿与出版动态。
 
 > **本仓库是什么？** 它不是一份只罗列热门名词的速查表，也不是只写给算法工程师的技术手册。它试图用普通读者能够进入的语言，解释 AI 为什么有效、哪里会失效，以及如何把一次对话逐步升级成可规划、会调用工具、能根据反馈调整的 Agent 工作流。
 
@@ -44,6 +48,12 @@
 - **正版图书购买**：[淘宝 · 机械工业出版社旗舰店](https://item.taobao.com/item.htm?ali_refid=a3_430582_1006%3A2749384094%3AH%3AlRz6SuiRPTDPlTcZHs1VGUCy5rjL5ndE%3Ae267fdb0ea4fe2661133e741c284ba14&ali_trackid=282_e267fdb0ea4fe2661133e741c284ba14&id=1067141988036&mi_id=0000pDIJYIyvQKLBc79P2vZrenR2aVBwBhR363gdomt0VAI&mm_sceneid=1_0_9275845400_0&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%225aeaec1958d4726d92948443d9961e91%22%7D&xxc=ad_ztc)
 - **配套数字平台**：[人工智能概论数字教学平台](https://szjc.ncu.edu.cn/) — 仅面向南昌大学及获得本书官方授权学校的师生开放；账号通常为对应学号，实际权限以学校或平台通知为准。
 - **配套开发项目**：[Nanqipro/Introduction-to-Artificial-Intelligence](https://github.com/Nanqipro/Introduction-to-Artificial-Intelligence)
+
+## 关于 GOODLAB
+
+本书由**南昌大学 GOODLAB 实验室相关团队出品并持续维护**。团队以人工智能通识教育为起点，在本书中进一步将 Agent 方法与科研、医学、医工融合、材料科学等领域实践相结合，力求让人工智能知识既容易理解，也能够迁移到真实任务之中。
+
+了解实验室及相关工作：[南昌大学 GOODLAB 实验室官网](https://good.ncu.edu.cn/)
 
 ## 为什么值得读
 

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="620" viewBox="0 0 1440 620" role="img" aria-labelledby="title desc">
+  <title id="title">人工智能通识教程（第二版）</title>
+  <desc id="desc">一本写给广泛读者的 AI Agent 应用通识教程</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07152d"/>
+      <stop offset="0.52" stop-color="#102a5c"/>
+      <stop offset="1" stop-color="#073b4c"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4fd1ff"/>
+      <stop offset="1" stop-color="#51f0bb"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#35d5ff" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#35d5ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#020817" flood-opacity=".45"/>
+    </filter>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#8db8e8" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+
+  <rect width="1440" height="620" rx="30" fill="url(#bg)"/>
+  <rect width="1440" height="620" rx="30" fill="url(#grid)"/>
+  <circle cx="1160" cy="300" r="320" fill="url(#glow)"/>
+  <circle cx="120" cy="580" r="240" fill="url(#glow)" opacity=".55"/>
+
+  <g font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+    <rect x="82" y="70" width="360" height="42" rx="21" fill="#dff9ff" fill-opacity=".1" stroke="#85eaff" stroke-opacity=".35"/>
+    <circle cx="106" cy="91" r="6" fill="#51f0bb"/>
+    <text x="124" y="98" fill="#c8f6ff" font-size="17" letter-spacing="2">COMING SOON · PUBLIC MANUSCRIPT</text>
+
+    <text x="78" y="214" fill="#ffffff" font-size="70" font-weight="700" letter-spacing="3">人工智能通识教程</text>
+    <rect x="80" y="242" width="610" height="5" rx="2.5" fill="url(#accent)"/>
+    <text x="80" y="306" fill="#d9e9ff" font-size="29" font-weight="500">从理解 AI，到真正驾驭 Agent</text>
+    <text x="80" y="354" fill="#9db6d8" font-size="22">Prompt · Skills · Tools · Multi-Agent · Real-world Practice</text>
+
+    <g font-size="18" font-weight="600">
+      <rect x="80" y="414" width="182" height="50" rx="25" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".14"/>
+      <text x="171" y="446" fill="#eef8ff" text-anchor="middle">面向广泛读者</text>
+      <rect x="278" y="414" width="182" height="50" rx="25" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".14"/>
+      <text x="369" y="446" fill="#eef8ff" text-anchor="middle">Agent 应用主线</text>
+      <rect x="476" y="414" width="182" height="50" rx="25" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".14"/>
+      <text x="567" y="446" fill="#eef8ff" text-anchor="middle">案例驱动学习</text>
+    </g>
+
+    <text x="82" y="535" fill="#6f8cad" font-size="17">9 个已编章节 · 50+ 节内容 · 240+ 幅图片素材 · 持续修订中</text>
+
+    <g filter="url(#shadow)">
+      <circle cx="1110" cy="304" r="112" fill="#0d4f8e" stroke="#63e6ff" stroke-width="2.5"/>
+      <circle cx="1110" cy="304" r="92" fill="#0a376b" stroke="#a3f5ff" stroke-opacity=".35"/>
+      <text x="1110" y="294" fill="#ffffff" font-size="45" font-weight="700" text-anchor="middle">Agent</text>
+      <text x="1110" y="332" fill="#8feaff" font-size="19" letter-spacing="3" text-anchor="middle">智能执行核心</text>
+    </g>
+
+    <g font-size="21" font-weight="600" text-anchor="middle">
+      <g>
+        <path d="M1110 192C1110 154 1080 136 1041 139" fill="none" stroke="#57dcff" stroke-width="2" stroke-dasharray="6 7"/>
+        <circle cx="960" cy="139" r="54" fill="#0b2b55" stroke="#57dcff" stroke-width="2"/>
+        <text x="960" y="146" fill="#dcf8ff">感知</text>
+      </g>
+      <g>
+        <path d="M1210 252C1255 231 1295 241 1315 269" fill="none" stroke="#6ef0c0" stroke-width="2" stroke-dasharray="6 7"/>
+        <circle cx="1330" cy="328" r="54" fill="#0b3b4b" stroke="#6ef0c0" stroke-width="2"/>
+        <text x="1330" y="335" fill="#e2fff4">规划</text>
+      </g>
+      <g>
+        <path d="M1160 404C1178 443 1168 478 1138 499" fill="none" stroke="#57dcff" stroke-width="2" stroke-dasharray="6 7"/>
+        <circle cx="1083" cy="511" r="54" fill="#0b2b55" stroke="#57dcff" stroke-width="2"/>
+        <text x="1083" y="518" fill="#dcf8ff">工具</text>
+      </g>
+      <g>
+        <path d="M1015 372C977 397 945 394 919 368" fill="none" stroke="#6ef0c0" stroke-width="2" stroke-dasharray="6 7"/>
+        <circle cx="894" cy="318" r="54" fill="#0b3b4b" stroke="#6ef0c0" stroke-width="2"/>
+        <text x="894" y="325" fill="#e2fff4">反馈</text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,101 @@
+# ============================================================
+# Operating-system metadata
+# ============================================================
+.DS_Store
+**/.DS_Store
+._*
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
+
+# ============================================================
+# Local editor and AI-assistant settings
+# These may contain machine-specific paths or permissions.
+# ============================================================
+.claude/
+.codex/
+.cursor/
+.idea/
+.vscode/
+.history/
+*.code-workspace
+*.swp
+*.swo
+*~
+
+# ============================================================
+# Local environment and credentials
+# ============================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ============================================================
+# LaTeX intermediate and generated files
+# Keep the manuscript and artwork in Git; publish PDFs via Releases.
+# ============================================================
+*.acn
+*.acr
+*.alg
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+_minted-*/
+*.pyg
+/main.pdf
+
+# ============================================================
+# Temporary, backup, and review-only artifacts
+# ============================================================
+*.bak
+*.tmp
+*.temp
+*.orig
+*.rej
+*.autosave
+~$*
+*.pages
+
+# Internal review exports should not clutter the public repository.
+review_report*
+*审稿报告*
+*评分报告*
+*评审报告*
+
+# ============================================================
+# Generic tool caches
+# ============================================================
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/

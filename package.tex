@@ -1,10 +1,14 @@
 % ============================================================
-% 全局宏包与样式定义（由 main.tex 在前言区 \include）
+% 全局宏包与样式定义（由 main.tex 在前言区 \input）
+% 所有章节共享的包、颜色、环境和命令统一定义于此
 % ============================================================
 
 % --- 数学 ---
 \usepackage{amsmath}
 \usepackage{amssymb}
+
+% --- 脚注每页重新编号 ---
+\usepackage[perpage]{footmisc}
 
 % --- 超链接（ctexbook 兼容模式）---
 \usepackage[hidelinks,bookmarks=true]{hyperref}
@@ -21,44 +25,430 @@
 \definecolor{codebg}{RGB}{245,245,250}
 \definecolor{codeframe}{RGB}{180,180,200}
 \lstdefinestyle{codeblock}{
-  backgroundcolor=\color{codebg},
-  basicstyle=\small\ttfamily,
-  breaklines=true,
-  frame=single,
-  framerule=0.5pt,
-  rulecolor=\color{codeframe},
-  framesep=8pt,
-  aboveskip=8pt,
-  belowskip=8pt,
-  columns=fullflexible,
-  keepspaces=true,
-  showstringspaces=false,
+    backgroundcolor=\color{codebg},
+    basicstyle=\small\ttfamily,
+    breaklines=true,
+    frame=single,
+    framerule=0.5pt,
+    rulecolor=\color{codeframe},
+    framesep=8pt,
+    aboveskip=8pt,
+    belowskip=8pt,
+    columns=fullflexible,
+    keepspaces=true,
+    showstringspaces=false,
 }
 \lstset{style=codeblock}
 
-% --- tcolorbox 引用框样式 ---
-\tcbset{
-  textbookquote/.style={
-    colback=blue!3!white,
-    colframe=blue!30!white,
-    boxrule=0.5pt,
-    arc=3pt,
-    left=6pt, right=6pt,
-    top=4pt, bottom=4pt,
-  },
-  skillbox/.style={
-    colback=teal!5!white,
-    colframe=teal!45!white,
-    boxrule=0.5pt,
-    arc=3pt,
-    left=6pt, right=6pt,
-    top=4pt, bottom=4pt,
-    fonttitle=\bfseries,
-    breakable,
-  }
+% ============================================================
+% 正式表格样式（三线表）
+% ============================================================
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+
+\newenvironment{formalTable}[1][htbp]{%
+    \begin{table}[#1]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.35}
+}{%
+    \end{table}
 }
 
-% --- 全局 lightquote 环境（供各章共用）---
+\newenvironment{formalLongTable}{%
+    \begingroup
+    \small
+    \renewcommand{\arraystretch}{1.35}
+    \setlength{\LTleft}{\fill}
+    \setlength{\LTright}{\fill}
+}{%
+    \endgroup
+}
+
+% 非浮动表格（用于 tcolorbox 等不可含 float 的环境内部）
+\newenvironment{formalInlineTable}{%
+    \begin{center}
+    \small
+    \renewcommand{\arraystretch}{1.35}
+}{%
+    \end{center}
+}
+
+% 长表格统一跨页表头（在 longtable 内使用）
+% #1 = 列数, #2 = 表头行内容
+\newcommand{\formallongtablehead}[2]{%
+    #2 \\
+    \midrule
+    \endfirsthead
+    \multicolumn{#1}{l}{\small\sffamily （续表）}\\
+    \addlinespace
+    #2 \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{#1}{r}{\small 接下页}\\
+    \endfoot
+    \bottomrule
+    \endlastfoot
+}
+
+% ============================================================
+% tcolorbox 样式定义（黑白打印适配版）
+% ============================================================
+\tcbset{
+    % 引用框样式
+    textbookquote/.style={
+        colback=gray!3,        % 极浅灰背景
+        colframe=gray!40,      % 浅灰边框
+        boxrule=0.5pt, arc=3pt,
+        left=6pt, right=6pt,
+        top=4pt, bottom=4pt,
+    },    
+    % 知识要点框样式（全书统一）
+    skillbox/.style={
+        enhanced,
+        breakable,
+        colback=gray!4,        % 浅灰背景
+        colframe=gray!70,      % 深灰边框
+        boxrule=0.7pt, arc=2mm,
+        left=8pt, right=8pt,
+        top=7pt, bottom=7pt,
+        fonttitle=\bfseries,
+    },
+    % 每节开头的知识要点框样式（全书统一）
+    sectionkeypointsbox/.style={
+        skillbox,
+        title={本节知识要点},
+        colback=gray!3,
+        colframe=gray!70,
+        colbacktitle=gray!80,
+        coltitle=white,
+        before skip=4pt,
+        after skip=4pt,
+    },
+    % AI 回答输出框样式
+    aiboxsty/.style={
+        skillbox, 
+        colback=gray!4,        % 浅灰背景
+        colframe=gray!60,      % 中深灰边框
+        fontupper=\small, breakable,
+        title={{\bfseries AI 输出}},
+        coltitle=black,        % 标题使用纯黑以保证清晰
+        before skip=4pt, after skip=4pt,
+    },
+    % 用户提示词输入框样式
+    userboxsty/.style={
+        skillbox, 
+        colback=gray!4,        % 浅灰背景
+        colframe=gray!50,      % 中灰边框
+        fontupper=\small, breakable,
+        title={{\bfseries AI 提问输入}},
+        coltitle=black,
+        before skip=4pt, after skip=4pt,
+    },
+    % % 科研提示词输入框样式（这部分与{userbox}重复了，不用这个）
+    % researcherboxsty/.style={
+    %     skillbox, 
+    %     colback=gray!4,        % 浅灰背景
+    %     colframe=gray!50,      % 中灰边框
+    %     fontupper=\small, breakable,
+    %     title={{\bfseries 输入}},
+    %     coltitle=black,
+    %     before skip=4pt, after skip=4pt,
+    % },
+    % 审视重点分析框样式
+    critiqueboxsty/.style={
+        skillbox, 
+        colback=gray!3,        % 极浅灰背景
+        colframe=gray!60,      % 中深灰边框
+        fontupper=\small, breakable,
+        title={{\bfseries 审核重点}},
+        coltitle=black,
+        before skip=4pt, after skip=4pt,
+    },
+    % 常见误区框样式
+     mistakeboxsty/.style={
+        skillbox, 
+        colback=gray!3,        % 极浅灰背景
+        colframe=gray!60,      % 中深灰边框
+        fontupper=\small, breakable,
+        title={{\bfseries 常见误区}},
+        coltitle=black,
+        before skip=4pt, after skip=4pt,
+    },
+    % 提示词模板展示框样式
+    promptbox/.style={
+        enhanced, breakable,
+        colback=gray!4,        % 浅灰背景
+        colframe=gray!60,      % 中深灰边框
+        fonttitle=\bfseries,
+        title=提示词,
+        arc=1.5mm, boxrule=0.6pt,
+        left=8pt, right=8pt, top=6pt, bottom=6pt,
+        before skip=8pt, after skip=8pt,
+    },
+    % 操作步骤框样式
+    stepbox/.style={
+        enhanced, breakable,
+        colback=gray!3,        % 极浅灰背景
+        colframe=gray!55,      % 中灰边框
+        fonttitle=\bfseries,
+        arc=1.5mm, boxrule=0.6pt,
+        left=8pt, right=8pt, top=6pt, bottom=6pt,
+        before skip=8pt, after skip=8pt,
+    },
+    % 文件内容展示框样式
+    filebox/.style={
+        enhanced, breakable,
+        colback=gray!4,        % 浅灰背景
+        colframe=gray!65,      % 中深灰边框
+        fonttitle=\bfseries,
+        arc=1.5mm, boxrule=0.6pt,
+        left=8pt, right=8pt, top=6pt, bottom=6pt,
+        before skip=8pt, after skip=8pt,
+    },
+    % 趣味知识框样式
+    funboxsty/.style={
+        enhanced, breakable,
+        colback=gray!4,        % 浅灰背景
+        colframe=gray!60,      % 中深灰边框
+        fonttitle=\bfseries,
+        title=知识拓展,
+        arc=2mm, boxrule=0.5pt,
+        left=8pt, right=8pt, top=6pt, bottom=6pt,
+        before skip=8pt, after skip=8pt,
+    },
+    % 第4章专用框体样式（通过边框粗细和灰度区分）
+    ch4box-keypoints/.style={skillbox, colback=gray!3, colframe=gray!70, colbacktitle=gray!80, coltitle=white, fonttitle=\bfseries},
+    ch4box-knowledge/.style={skillbox, colback=gray!4, colframe=gray!65, colbacktitle=gray!70, coltitle=white, fonttitle=\bfseries},
+    ch4box-teacher/.style={skillbox, colback=gray!3, colframe=gray!75, colbacktitle=gray!85, coltitle=white, fonttitle=\bfseries},
+    ch4box-prompt/.style={skillbox, colback=gray!4, colframe=gray!60, colbacktitle=gray!65, coltitle=white, fonttitle=\bfseries},
+    ch4box-outputA/.style={skillbox, colback=gray!3, colframe=gray!70, colbacktitle=gray!75, coltitle=white, fonttitle=\bfseries},
+    ch4box-outputB/.style={skillbox, colback=gray!4, colframe=gray!65, colbacktitle=gray!70, coltitle=white, fonttitle=\bfseries},
+    ch4box-reminder/.style={skillbox, colback=gray!3, colframe=gray!60, colbacktitle=gray!75, coltitle=white, fonttitle=\bfseries},
+}
+
+% ============================================================
+% 环境定义（保持不变）
+% ============================================================
+
 \newenvironment{lightquote}{%
-  \begin{tcolorbox}[textbookquote]\small}{%
-  \end{tcolorbox}}
+    \begin{tcolorbox}[textbookquote]\small}{%
+    \end{tcolorbox}}
+
+\newenvironment{aibox}{%
+    \begin{tcolorbox}[aiboxsty]}{%
+    \end{tcolorbox}}
+
+\newenvironment{userbox}{%
+    \begin{tcolorbox}[userboxsty]}{%
+    \end{tcolorbox}}
+
+% \newenvironment{researcherbox}{%
+%     \begin{tcolorbox}[researcherboxsty]}{%
+%     \end{tcolorbox}}
+
+\newenvironment{critiquebox}{%
+    \begin{tcolorbox}[critiqueboxsty]}{%
+    \end{tcolorbox}}
+
+\newenvironment{mistakebox}{%
+    \begin{tcolorbox}[mistakeboxsty]}{%
+    \end{tcolorbox}}
+
+
+
+\newenvironment{funbox}{%
+    \begin{tcolorbox}[funboxsty]\small}{%
+    \end{tcolorbox}}
+
+\newenvironment{warnbox}{%
+    \begin{tcolorbox}[warnbox]\small}{%
+    \end{tcolorbox}}
+
+\newenvironment{promptbox}{%
+    \begin{tcolorbox}[promptbox]}{%
+    \end{tcolorbox}}
+
+\newenvironment{knowledgebox}{%
+    \begin{tcolorbox}[skillbox, title=知识拓展]}{%
+    \end{tcolorbox}}
+
+\newenvironment{sectionkeypoints}{%
+    \begin{tcolorbox}[sectionkeypointsbox]\small
+    \begin{itemize}[leftmargin=*, itemsep=2pt]}{%
+    \end{itemize}
+    \end{tcolorbox}}
+% % ============================================================
+% % tcolorbox 样式定义（有颜色，仅定义样式，不创建环境）
+% % ============================================================
+% \tcbset{
+%     % 引用框样式
+%     textbookquote/.style={
+%         colback=blue!3!white,
+%         colframe=blue!30!white,
+%         boxrule=0.5pt, arc=3pt,
+%         left=6pt, right=6pt,
+%         top=4pt, bottom=4pt,
+%     },    
+%     % 知识要点框样式（全书统一）
+%     skillbox/.style={
+%         enhanced,
+%         breakable,
+%         colback=blue!4, colframe=blue!55!black,
+%         boxrule=0.7pt, arc=2mm,
+%         left=8pt, right=8pt,
+%         top=7pt, bottom=7pt,
+%         fonttitle=\bfseries,
+%     },
+%     % 每节开头的知识要点框样式（全书统一）
+%     sectionkeypointsbox/.style={
+%         skillbox,
+%         title={本节知识要点},
+%         colback=blue!3,
+%         colframe=blue!55!black,
+%         colbacktitle=blue!75!black,
+%         coltitle=white,
+%         before skip=4pt,
+%         after skip=4pt,
+%     },
+%     % AI 回答输出框样式
+%     aiboxsty/.style={
+%         skillbox, colback=teal!4, colframe=teal!50!black,
+%         fontupper=\small, breakable,
+%         title={{\bfseries AI 输出}},
+%         coltitle=teal!50!black!70,
+%         before skip=4pt, after skip=4pt,
+%     },
+%     % 用户提示词输入框样式
+%     userboxsty/.style={
+%         skillbox, colback=blue!4, colframe=blue!50!black!30,
+%         fontupper=\small, breakable,
+%         title={{\bfseries AI 提问输入}},
+%         coltitle=blue!50!black!70,
+%         before skip=4pt, after skip=4pt,
+%     },
+%     % 科研提示词输入框样式
+%     researcherboxsty/.style={
+%         skillbox, colback=blue!4, colframe=blue!50!black!30,
+%         fontupper=\small, breakable,
+%         title={{\bfseries 输入}},
+%         coltitle=blue!50!black!70,
+%         before skip=4pt, after skip=4pt,
+%     },
+%     % 审视/批判分析框样式
+%     critiqueboxsty/.style={
+%         skillbox, colback=cyan!3, colframe=cyan!45!black,
+%         fontupper=\footnotesize, breakable,
+%         title={{\bfseries 审视}},
+%         coltitle=cyan!50!black!70,
+%         before skip=4pt, after skip=4pt,
+%     },
+%     % 提示词模板展示框样式
+%     promptbox/.style={
+%         enhanced, breakable,
+%         colback=gray!4, colframe=gray!55,
+%         fonttitle=\bfseries,
+%         title=提示词或示例内容,
+%         arc=1.5mm, boxrule=0.6pt,
+%         left=8pt, right=8pt, top=6pt, bottom=6pt,
+%         before skip=8pt, after skip=8pt,
+%     },
+%     % 操作步骤框样式
+%     stepbox/.style={
+%         enhanced, breakable,
+%         colback=blue!3, colframe=blue!45!black,
+%         fonttitle=\bfseries,
+%         arc=1.5mm, boxrule=0.6pt,
+%         left=8pt, right=8pt, top=6pt, bottom=6pt,
+%         before skip=8pt, after skip=8pt,
+%     },
+%     % 文件内容展示框样式
+%     filebox/.style={
+%         enhanced, breakable,
+%         colback=gray!4, colframe=gray!60,
+%         fonttitle=\bfseries,
+%         arc=1.5mm, boxrule=0.6pt,
+%         left=8pt, right=8pt, top=6pt, bottom=6pt,
+%         before skip=8pt, after skip=8pt,
+%     },
+%     % 警告/注意框样式
+%     warnbox/.style={
+%         enhanced, breakable,
+%         colback=gray!5, colframe=gray!65,
+%         fonttitle=\bfseries,
+%         title=注意,
+%         arc=1.5mm, boxrule=0.6pt,
+%         left=8pt, right=8pt, top=6pt, bottom=6pt,
+%         before skip=8pt, after skip=8pt,
+%     },
+%     % 趣味知识框样式
+%     funboxsty/.style={
+%         enhanced, breakable,
+%         colback=yellow!6, colframe=orange!40!black,
+%         fonttitle=\bfseries,
+%         title=知识拓展,
+%         arc=2mm, boxrule=0.5pt,
+%         left=8pt, right=8pt, top=6pt, bottom=6pt,
+%         before skip=8pt, after skip=8pt,
+%     },
+%     % 第4章专用框体样式
+%     ch4box-keypoints/.style={skillbox, colback=blue!3, colframe=blue!55!black, colbacktitle=blue!75!black, coltitle=white, fonttitle=\bfseries},
+%     ch4box-knowledge/.style={skillbox, colback=teal!4, colframe=teal!55!black, colbacktitle=teal!70!black, coltitle=white, fonttitle=\bfseries},
+%     ch4box-teacher/.style={skillbox, colback=orange!6, colframe=orange!70!black, colbacktitle=orange!75!black, coltitle=white, fonttitle=\bfseries},
+%     ch4box-prompt/.style={skillbox, colback=purple!4, colframe=purple!60!black, colbacktitle=purple!70!black, coltitle=white, fonttitle=\bfseries},
+%     ch4box-outputA/.style={skillbox, colback=red!3, colframe=red!55!black, colbacktitle=red!65!black, coltitle=white, fonttitle=\bfseries},
+%     ch4box-outputB/.style={skillbox, colback=green!5, colframe=green!50!black, colbacktitle=green!60!black, coltitle=white, fonttitle=\bfseries},
+%     ch4box-reminder/.style={skillbox, colback=cyan!4, colframe=cyan!55!black, colbacktitle=cyan!70!black, coltitle=white, fonttitle=\bfseries},
+% }
+
+% % ============================================================
+% % 环境定义（使用 newenvironment 包装，比 \newtcolorbox 更稳健）
+% % ============================================================
+
+% \newenvironment{lightquote}{%
+%     \begin{tcolorbox}[textbookquote]\small}{%
+%     \end{tcolorbox}}
+
+% \newenvironment{aibox}{%
+%     \begin{tcolorbox}[aiboxsty]}{%
+%     \end{tcolorbox}}
+
+% \newenvironment{userbox}{%
+%     \begin{tcolorbox}[userboxsty]}{%
+%     \end{tcolorbox}}
+
+% \newenvironment{researcherbox}{%
+%     \begin{tcolorbox}[researcherboxsty]}{%
+%     \end{tcolorbox}}
+
+% \newenvironment{critiquebox}{%
+%     \begin{tcolorbox}[critiqueboxsty]}{%
+%     \end{tcolorbox}}
+
+% \newenvironment{funbox}{%
+%     \begin{tcolorbox}[funboxsty]\small}{%
+%     \end{tcolorbox}}
+
+% \newenvironment{knowledgebox}{%
+%     \begin{tcolorbox}[skillbox, title=知识拓展]}{%
+%     \end{tcolorbox}}
+
+% ============================================================
+% 通用命令定义
+% ============================================================
+
+\providecommand{\minorheading}[1]{%
+    \par\medskip
+    \noindent\textbf{#1}\par\vspace{0.25em}
+}
+
+\providecommand{\manualfigcaption}[1]{%
+    \par\vspace{0.35em}{\centering\small #1\par}\vspace{0.25em}%
+}
+
+\providecommand{\BookFigureImage}[1]{%
+    \includegraphics[width=0.93\textwidth,height=0.42\textheight,keepaspectratio]{#1}%
+}
+
+\providecommand{\caselabel}[2]{{\small\sffamily\color{#1}#2}}
+\providecommand{\casestar}{$\bigstar$}
